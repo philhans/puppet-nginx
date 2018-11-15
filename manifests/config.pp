@@ -19,4 +19,17 @@ class nginx::config (
     group   => $config_group,
     content => template("${module_name}/conf.d/nginx.conf.erb"),
   }
+  
+  file { $log_dir:
+    ensure  => directory,
+    recurse => true
+  }
+
+  file { $docroot:
+    ensure  => directory,
+    recurse => true,
+    mode    => $config_mode,
+    owner   => $config_owner,
+    group   => $config_group,
+  }
 }
