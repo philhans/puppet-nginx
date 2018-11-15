@@ -10,7 +10,7 @@ define nginx::vhost (
   String $config_log_dir               = $::nginx::config_log_dir,
   String $vhost_dir                    = $::nginx::vhost_dir,
 ) {
-  $vhost_docroot = "${::nginx::docroot}/${name}""
+  $vhost_docroot = "${::nginx::docroot}/${name}"
   
   file { "${vhost_dir}/${priority}-${name}.conf":
     ensure  => file,
